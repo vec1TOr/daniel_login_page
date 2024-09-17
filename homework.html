@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: antiquewhite;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: black;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input{
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #064408;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: blue;
+        }
+        .message {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+
+        h1, h2, p{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My First Web Page</h1>
+    <p>Applying CSS and Javascript to HTML</p>
+
+<h2>Contact Form</h2>
+<form id="contactForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Submit</button>
+    <div class="message" id="message"></div>
+</form>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        
+        let username = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let messageDiv = document.getElementById('message');
+
+        if (username && email && password) {
+            messageDiv.style.color = 'green';
+            messageDiv.textContent = 'Welcome ' + username + ' Form submited successfully!';
+            messageDiv.style.display = 'block';
+            
+        } else {
+            messageDiv.style.color = 'red';
+            messageDiv.textContent = 'Please fill all fields.';
+            messageDiv.style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>
